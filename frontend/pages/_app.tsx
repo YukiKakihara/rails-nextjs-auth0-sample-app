@@ -5,6 +5,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 function MyApp({ Component, pageProps }: AppProps) {
   //ログイン後のリダイレクト先を指定
   const redirectUri = `${process.env['NEXT_PUBLIC_BASE_URL']}/login`;
+
   return (
     <Auth0Provider
       domain={process.env['NEXT_PUBLIC_AUTH0_DOMAIN']!}
