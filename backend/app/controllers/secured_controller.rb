@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class SecuredController < ApplicationController
   before_action :authorize_request
 
   private
