@@ -11,7 +11,8 @@ const tokenState = atom({
 
 const LoginPage: NextPage = () => {
   const router = useRouter();
-  const { isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, logout, getAccessTokenSilently, loginWithRedirect } =
+    useAuth0();
   const setToken = useSetRecoilState(tokenState);
 
   // ログイン完了後にトークンを取得しRecoilへ格納
@@ -45,7 +46,12 @@ const LoginPage: NextPage = () => {
           </button>
         </>
       ) : (
-        <p>ログアウトしています</p>
+        <>
+          <p>ログアウトしています</p>
+          <div>
+            <button onClick={() => loginWithRedirect()}>ログイン</button>
+          </div>
+        </>
       )}
     </div>
   );
